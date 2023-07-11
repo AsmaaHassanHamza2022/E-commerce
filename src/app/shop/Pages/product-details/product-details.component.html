@@ -1,0 +1,29 @@
+<div class="product-details">
+    <div class="container product-container">
+        <div class="product-data">
+            <h3 class="product-name">{{productItem.name}}</h3>
+            <p class="product-price">
+                <span *ngIf="productItem.price">$</span>
+                {{productItem.price}}</p>
+            <div class="more-details">
+                <p>{{productItem.productType}}</p>
+                <p>{{productItem.productBrand}}</p>
+            </div>
+            <div class="product-desc">
+                <p>{{productItem.description}}</p>
+
+            </div>
+            <div class="actions">
+                <app-product-counter (changeProductCount)="catchNewCount($event)"></app-product-counter>
+                <div class="add-cart">
+                    <button>Add to Cart </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="product-img">
+           <img src="{{productItem.pictureUrl}}"/>
+        </div>
+    </div>
+
+</div>

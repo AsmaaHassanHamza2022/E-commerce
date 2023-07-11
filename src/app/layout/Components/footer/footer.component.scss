@@ -1,0 +1,11 @@
+@import '../../../../assets/styles/colors.scss';
+
+.footer{
+    background-color: $primary;
+    text-align: center;
+    color:#fff;
+
+    p{
+        margin: 0px;
+    }
+}

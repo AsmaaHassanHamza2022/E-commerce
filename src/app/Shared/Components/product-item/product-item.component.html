@@ -1,0 +1,17 @@
+<div class="card h-100 flex justify-content-center">
+    <p-card class="h-100" [header]="product?.name" [subheader]="product?.productType" >
+        <ng-template pTemplate="header">
+            <img alt="Card" [src]="product?.pictureUrl" />
+        </ng-template>
+        <p>{{product?.description |sliceLongText :100}}</p>  
+       
+        <ng-template   pTemplate="footer">
+            <div class="actions">
+                <div (click)="addCart()" [pTooltip]="'ProductsList.ProductItem.AddToCart' |translate" tooltipPosition="top" class="btn"><i class="fa-solid fa-cart-plus" style="color: #3a99a9;"></i></div>
+                <div [routerLink]="['/shop/product/',product?.id]" [pTooltip]="'ProductsList.ProductItem.ShowMoreDetails' |translate" tooltipPosition="top" class="btn"><i class="fa-solid fa-circle-info" style="color: #3a99a9;"></i></div>
+            </div>
+            
+        </ng-template>
+    </p-card>
+    
+</div>

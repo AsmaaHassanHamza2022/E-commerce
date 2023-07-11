@@ -1,0 +1,38 @@
+<div class="topnav">
+  <div class="container-fluid d-flex justify-content-start">
+    <div class="brand d-flex justify-content-center align-items-center w-25">
+      <a class="activex">{{ "Layout.Navbar.SiteTitle" | translate }}</a>
+    </div>
+
+    <div class="nav-links w-75 d-flex justify-content-between">
+      <div class="links w-50 d-flex justify-content-between">
+        <a [routerLink]="['/home']" routerLinkActive="activex" >{{ "Layout.Navbar.Links.Home" | translate }}</a>
+        <a [routerLink]="['/shop']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Shop" | translate }}</a>
+        <a>{{ "Layout.Navbar.Links.Contact" | translate }}</a>
+      </div>
+
+      <div class="actions w-50 d-flex justify-content-end">
+        <a class="cart" [routerLink]="['/cart']" ><i class="fa-solid fa-cart-shopping" style="color: #3aa39f"></i><span *ngIf="(cartService.cart$ |async) as cartItemsCount">{{getCartItemsCount(cartItemsCount.items)}}</span></a>
+        <a>{{ "Layout.Navbar.actions.Login" | translate }}</a>
+        <a>{{ "Layout.Navbar.actions.Register" | translate }}</a>
+        <a>{{ "Layout.Navbar.actions.Logout" | translate }}</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="icon" (click)="ToggleNavBar()">
+    <i class="fa-solid fa-bars" style="color: #3aa39f"></i>
+  </a>
+</div>
+
+<div [class.show]="toggleNavbar" class="nav-links w-100 MediumScreen">
+  <a class="cart" [routerLink]="['/cart']"><i class="fa-solid fa-cart-shopping" style="color: #fff"></i><span class="column">11</span></a>
+  <a  [routerLink]="['/home']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Home" | translate }}</a>
+  <a  [routerLink]="['/shop']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Shop" | translate }}</a>
+  <a>{{ "Layout.Navbar.Links.Contact" | translate }}</a>
+  <a>{{ "Layout.Navbar.actions.Login" | translate }}</a>
+  <a>{{ "Layout.Navbar.actions.Register" | translate }}</a>
+  <a>{{ "Layout.Navbar.actions.Logout" | translate }}</a>
+</div>
+
+

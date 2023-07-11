@@ -1,0 +1,53 @@
+<div class="shop-container">
+  <div class="page-title">
+    <h3>Welcome In our Shop</h3>
+  </div>
+  <div class="products-filters my-4">
+    <div class="filter-by-brands">
+      <div class="card flex justify-content-center">
+        <p-dropdown [options]="productsBrands" [(ngModel)]="selectedBrand" optionLabel="name" [filter]="true"
+          filterBy="name" [showClear]="true" placeholder="Filter By Product Brand" (onChange)="onBrandChange($event)">
+          <ng-template pTemplate="selectedItem">
+            <div>{{ selectedBrand?.name }}</div>
+          </ng-template>
+          <ng-template let-brand pTemplate="item">
+            <div class="flex align-items-center gap-2">
+              <div>{{ brand?.name }}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+      </div>
+    </div>
+
+    <div class="filter-by-Types">
+      <p-dropdown [options]="productsTypes" [(ngModel)]="selectedType" optionLabel="name" [filter]="true"
+        filterBy="name" [showClear]="true" placeholder="Filter By Product type" (onChange)="onTypeChange($event)">
+        <ng-template pTemplate="selectedItem">
+          <div>{{ selectedType?.name }}</div>
+        </ng-template>
+        <ng-template let-type pTemplate="item">
+          <div class="flex align-items-center gap-2">
+            <div>{{ type?.name }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+    <div class="search">
+      <span class="p-input-icon-left">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input #searchInput type="text" placeholder="Search By Product Name" pInputText [(ngModel)]="searchKey" />
+      </span>
+    </div>
+  </div>
+
+  <div class="products container my-5">
+    <div *ngFor="let product of Products" class="product">
+      <app-product-item [product]="product" (AddToCart)="addToCart($event)"></app-product-item>
+    </div>
+  </div>
+
+  <div class="paginations flex justify-content-center">
+    <p-paginator *ngIf="items" (onPageChange)="onPageChange($event)" [first]="items.pageIndex" [rows]="items.pageSize"
+      [totalRecords]="items.count" [rowsPerPageOptions]="[5, 10, 15]"></p-paginator>
+  </div>
+</div>

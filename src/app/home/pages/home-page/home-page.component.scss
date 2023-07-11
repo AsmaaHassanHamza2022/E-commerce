@@ -1,0 +1,20 @@
+@import '../../../../assets/styles/colors.scss';
+.products{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    @media (max-width:786px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+}
+
+.BestProduct-title{
+    margin: 10px 0px;
+    color:$primary;
+}

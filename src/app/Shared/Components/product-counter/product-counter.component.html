@@ -1,0 +1,13 @@
+<div class="product-count">
+    <div class="btn-container">
+        <div (click)="onPlusClick()" class="plus">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="number">
+            {{productCount}}
+        </div>
+        <div class="minus"  (click)="onMinusClick()">
+            <i class="fa-solid fa-minus"></i>
+        </div>
+    </div>
+</div>

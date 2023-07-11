@@ -1,0 +1,21 @@
+<div class="home">
+    <div class="carsoule">
+        <app-carousel></app-carousel>
+        
+    </div>
+    <div class="our-products">
+        <div class="header">
+           <h3 class="BestProduct-title my-3 text-center"> Our Best Product</h3>
+        </div>
+        <div class="container my-5">
+            <div class="products">
+                <div *ngFor="let product of MostPopularProducts" class="product">
+                    <app-product-item  [product]="product" ></app-product-item>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+

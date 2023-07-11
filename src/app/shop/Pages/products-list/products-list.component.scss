@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/colors.scss';
+.shop-container{
+    .page-title{
+        h3{
+            text-align: center;
+            color:$primary;
+            margin:20px 0px;
+        }
+    }
+    .products-filters{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 20px 0px;
+
+        @media (max-width:992px) {
+            flex-direction: column;
+            align-items: center;
+            gap:10px;
+            
+        }
+    }
+    .products{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap:20px;
+    }
+}

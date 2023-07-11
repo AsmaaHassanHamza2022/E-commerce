@@ -1,0 +1,29 @@
+{
+    "Layout":{
+        "Navbar":{
+            "SiteTitle":"Fruni",
+            "Links":{
+                "Home":"Home",
+                "Shop":"Shop",
+                "Contact":"Contact Us"
+            },
+            "actions":{
+                "Login":"Login",
+                "Register":"Register",
+                "Logout":"Logout"
+            }
+        },
+        "Footer":{
+            "copyRight":"Design By Frontend Team @ 2023"
+        }
+    },
+    "ProductsList":{
+        "ProductItem":{
+            "AddToCart":"Add To Cart",
+            "ShowMoreDetails":"Show More Details"
+
+        }
+
+    }
+    
+}

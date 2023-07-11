@@ -1,0 +1,20 @@
+<div class="cart-item">
+    <div class="item-data">
+        <div class="item-img">
+            <img [src]="cartItem.productPhoto" />
+        </div>
+        <div class="des">
+            <div class="content h-50">
+                <h4>{{cartItem.productName}}</h4>
+                <app-product-counter (changeProductCount)="catchNewCount($event)"></app-product-counter>
+            </div>
+
+        </div>
+    </div>
+    <div class="item-price">
+        <h4>
+            <span *ngIf="cartItem.productPrice">$</span>
+            {{cartItem.productPrice}}
+        </h4>
+    </div>
+</div>
