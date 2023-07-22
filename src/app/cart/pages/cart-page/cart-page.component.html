@@ -1,14 +1,43 @@
 <div class="container">
-    <div class="cart-title">
-        <h3>Cart</h3>
+    <div class="cart-title ">
+        <h3>Cart Items</h3>
+    </div>
+    <div class="noItem" *ngIf="!(cartService.cart$ |async)">
+        <h3>There is no Items in the Cart </h3>
     </div>
     <div class="page-content d-flex justify-content-between">
-        <div class="items ">
-            <app-catr-item *ngFor="let x of [1,2,3,4,5]"></app-catr-item>
+        <div class="items" *ngIf="(cartService.cart$ |async) as cart">
+            <app-catr-item *ngFor="let cartItem of cart.items" [cartItem]="cartItem"></app-catr-item>
         </div>
-        <div class="test ">
-            tests
+        
+        <div class="payment-summary" *ngIf="(cartService.cartTotalPrice$ |async) as TotalPrice">
+            <div class="summary">
+                <div class="title">
+                    <h4>Order Summary</h4>
+                </div>
+                <div class="subTotal">
+                    <div class="section price">
+                        <p class="title">Price</p>
+                        <p class="value">{{TotalPrice.subTotal}} <span *ngIf="TotalPrice.subTotal">$</span></p>
+
+                    </div>
+                    <div class="section shipment">
+                        <p class="title">shipment</p>
+                        <p class="value">{{TotalPrice.shipment}} <span *ngIf="TotalPrice.shipment">$</span></p>
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="section total-price">
+                        <p class="title">{{'total' |uppercase}} </p>
+                        <p class="value">{{TotalPrice.total}} <span *ngIf="TotalPrice.total">$</span></p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button>Proceed to Checkout</button>
+                </div>
+            </div>
+
         </div>
     </div>
-   
+
 </div>

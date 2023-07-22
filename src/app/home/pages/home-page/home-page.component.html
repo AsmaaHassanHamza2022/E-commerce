@@ -10,7 +10,7 @@
         <div class="container my-5">
             <div class="products">
                 <div *ngFor="let product of MostPopularProducts" class="product">
-                    <app-product-item  [product]="product" ></app-product-item>
+                    <app-product-item (AddToCart)="addToCart($event)" [product]="product" ></app-product-item>
                 </div>
             </div>
             

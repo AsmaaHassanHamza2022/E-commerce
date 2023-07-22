@@ -1,0 +1,55 @@
+<div class="login-part">
+    <div class="banner">
+    </div>
+    <div class="login-content">
+        <div class="content">
+            <h4>Sign Up</h4>
+            <div class="email-pass-section">
+                <form [formGroup]="registerForm">
+                    <div class="example-container">
+                        <div class="input-group">
+                            <span class="p-float-label my-2">
+                                <input pInputText [class.ng-invalid]="f['displayName'].touched && f['displayName'].invalid"
+                                    formControlName="displayName" />
+                                <label htmlFor="username">Display Name</label>
+                            </span>
+                            <div class="error-msg" *ngIf="f['displayName'].invalid &&f['displayName'].touched">
+                                <small *ngIf="f['displayName'].errors && f['displayName'].errors['required']" class="text-danger">{{errorMessages.required}}</small>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <span class="p-float-label my-2">
+                                <input pInputText [class.ng-invalid]="f['email'].touched && f['email'].invalid"
+                                    formControlName="email" />
+                                <label htmlFor="username">Email</label>
+                            </span>
+                            <div class="error-msg" *ngIf="f['email'].invalid &&f['email'].touched">
+                                <small *ngIf="f['email'].errors && f['email'].errors['required']" class="text-danger">{{errorMessages.required}}</small>
+                                <small *ngIf="f['email'].errors && f['email'].errors['pattern']" class="text-danger">{{errorMessages.email}}</small>
+
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="p-float-label my-2 ">
+                                <p-password formControlName="password"
+                                    [class.ng-invalid]="f['password'].touched && f['password'].invalid"
+                                    [feedback]="false" [toggleMask]="true"></p-password>
+                                <label for="password">Password</label>
+                            </span>
+                            <div class="error-msg" *ngIf="f['password'].invalid && f['password'].touched">
+                                <small *ngIf="f['password'].errors && f['password'].errors['required']" class="text-danger">{{errorMessages.required}}</small>
+                                <small *ngIf="f['password'].errors && f['password'].errors['pattern']" class="text-danger">{{errorMessages.password}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="login-button">
+                <button  (click)="register()"> Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+</div>

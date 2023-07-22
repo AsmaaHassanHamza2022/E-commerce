@@ -1,8 +1,9 @@
 <div class="card h-100 flex justify-content-center">
-    <p-card class="h-100" [header]="product?.name" [subheader]="product?.productType" >
+    <p-card class="h-100" [header]="product?.name" [subheader]="(product?.price|currency) +''" >
         <ng-template pTemplate="header">
             <img alt="Card" [src]="product?.pictureUrl" />
         </ng-template>
+        <!-- <p>{{product?.price |currency}}</p> -->
         <p>{{product?.description |sliceLongText :100}}</p>  
        
         <ng-template   pTemplate="footer">

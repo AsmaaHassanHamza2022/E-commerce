@@ -1,0 +1,63 @@
+@import '../../../../assets/styles/colors.scss';
+.cart-title{
+    h3{
+        color:$primary;
+        margin: 20px 0px;
+    }
+}
+.noItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:$primary;
+    border: 1px solid $primary;
+    padding: 30px 0px;
+
+}
+
+.payment-summary{
+    position: fixed;
+    right:20px;
+    top:100px;
+    .summary{
+        border:1px solid #D1D1D8;
+        padding: 20px 50px;
+
+        .subTotal{
+            border-bottom: 1px solid #D1D1D8;
+        }
+
+        .section{
+            margin: 20px 0px;
+            p{
+                font-size: 16px;
+            }
+        }
+        .actions{
+            button{
+                width:200px;
+                padding: 10px;
+                background-color: $primary;
+                color: #fff;
+                border: 1px solid $primary;
+              }
+        }
+    }
+
+    .section{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0px;
+    }
+}
+
+@media (max-width:992px){
+    .page-content{
+        flex-direction: column;
+        gap:30px;
+    }
+    .payment-summary{
+        position: static;
+        margin: 30px 0px;
+    }
+}

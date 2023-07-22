@@ -7,6 +7,9 @@ import { TooltipModule } from 'primeng/tooltip';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
+import { PasswordModule } from 'primeng/password';
+import { MenuModule } from 'primeng/menu';
+
 
 
 
@@ -19,7 +22,9 @@ const modules:any=[
   TooltipModule,
   DropdownModule,
   InputTextModule,
-  PaginatorModule
+  PaginatorModule,
+  PasswordModule,
+  MenuModule
 
 ]
 

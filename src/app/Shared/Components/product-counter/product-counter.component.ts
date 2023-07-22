@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-counter',
@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./product-counter.component.scss']
 })
 export class ProductCounterComponent {
-  public productCount:number=1;
+  @Input() public productCount:number=1;
   @Output() changeProductCount= new EventEmitter<number>();
 
   constructor(){

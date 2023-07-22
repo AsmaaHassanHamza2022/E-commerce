@@ -8,4 +8,10 @@ export class APIs {
   };
 
   public static Cart="Basket";
+
+  public static Indentity={
+    login:"Account/login",
+    registers:"Account/register",
+    getUserData:'Account'
+  }
 }

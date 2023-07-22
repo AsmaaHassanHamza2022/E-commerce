@@ -25,7 +25,8 @@ const modules=[
     PrimNgModule,
     TranslateModule,
     NgxSpinnerModule,
-    RouterModule
+    RouterModule,
+    
     
   ],
   exports:[

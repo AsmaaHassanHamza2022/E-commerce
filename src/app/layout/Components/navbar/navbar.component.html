@@ -6,16 +6,24 @@
 
     <div class="nav-links w-75 d-flex justify-content-between">
       <div class="links w-50 d-flex justify-content-between">
-        <a [routerLink]="['/home']" routerLinkActive="activex" >{{ "Layout.Navbar.Links.Home" | translate }}</a>
+        <a [routerLink]="['/home']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Home" | translate }}</a>
         <a [routerLink]="['/shop']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Shop" | translate }}</a>
         <a>{{ "Layout.Navbar.Links.Contact" | translate }}</a>
       </div>
 
-      <div class="actions w-50 d-flex justify-content-end">
-        <a class="cart" [routerLink]="['/cart']" ><i class="fa-solid fa-cart-shopping" style="color: #3aa39f"></i><span *ngIf="(cartService.cart$ |async) as cartItemsCount">{{getCartItemsCount(cartItemsCount.items)}}</span></a>
-        <a>{{ "Layout.Navbar.actions.Login" | translate }}</a>
-        <a>{{ "Layout.Navbar.actions.Register" | translate }}</a>
-        <a>{{ "Layout.Navbar.actions.Logout" | translate }}</a>
+      <div class="actions w-50 d-flex justify-content-end align-items-center">
+        <a class="cart" [routerLink]="['/cart']"><i class="fa-solid fa-cart-shopping" style="color: #3aa39f"></i><span
+            *ngIf="(cartService.cart$ |async) as cartItemsCount">{{getCartItemsCount(cartItemsCount.items)}}</span></a>
+        <a *ngIf="!(authSer.currentUserData |async)" [routerLink]="['/auth/login']">{{ "Layout.Navbar.actions.Login" |
+          translate }}</a>
+        <a *ngIf="!(authSer.currentUserData |async)" [routerLink]="['/auth/register']">{{
+          "Layout.Navbar.actions.Register" | translate }}</a>
+          <div class="card" *ngIf="(authSer.currentUserData |async) as user">
+            <p-toast></p-toast>
+            <p-menu #menu [model]="items" [popup]="true"></p-menu>
+            <span (click)="menu.toggle($event)">Welcome , {{user?.displayName}}</span>
+          </div>
+       
       </div>
     </div>
   </div>
@@ -26,13 +34,12 @@
 </div>
 
 <div [class.show]="toggleNavbar" class="nav-links w-100 MediumScreen">
-  <a class="cart" [routerLink]="['/cart']"><i class="fa-solid fa-cart-shopping" style="color: #fff"></i><span class="column">11</span></a>
-  <a  [routerLink]="['/home']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Home" | translate }}</a>
-  <a  [routerLink]="['/shop']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Shop" | translate }}</a>
+  <a class="cart" [routerLink]="['/cart']"><i class="fa-solid fa-cart-shopping" style="color: #fff"></i><span
+      class="column">11</span></a>
+  <a [routerLink]="['/home']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Home" | translate }}</a>
+  <a [routerLink]="['/shop']" routerLinkActive="activex">{{ "Layout.Navbar.Links.Shop" | translate }}</a>
   <a>{{ "Layout.Navbar.Links.Contact" | translate }}</a>
-  <a>{{ "Layout.Navbar.actions.Login" | translate }}</a>
-  <a>{{ "Layout.Navbar.actions.Register" | translate }}</a>
-  <a>{{ "Layout.Navbar.actions.Logout" | translate }}</a>
+  <a *ngIf="!(authSer.currentUserData |async)">{{ "Layout.Navbar.actions.Login" | translate }}</a>
+  <a *ngIf="!(authSer.currentUserData |async)">{{ "Layout.Navbar.actions.Register" | translate }}</a>
+  
 </div>
-
-

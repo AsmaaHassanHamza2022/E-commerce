@@ -1,20 +1,23 @@
 <div class="cart-item">
     <div class="item-data">
         <div class="item-img">
-            <img [src]="cartItem.productPhoto" />
+            <img [src]="cartItem.pictureUrl" />
         </div>
-        <div class="des">
+        <div class="des mb-4">
             <div class="content h-50">
                 <h4>{{cartItem.productName}}</h4>
-                <app-product-counter (changeProductCount)="catchNewCount($event)"></app-product-counter>
+                <div class="item-action d-flex align-items-center justify-content-start g-10">
+                    <app-product-counter [productCount]="cartItem.quantity" (changeProductCount)="catchNewCount($event,cartItem.id)"></app-product-counter>
+                    <p (click)="removeItem(cartItem.id)" class="text-danger my-0 py-0 ">Remove</p>
+                </div>
             </div>
 
         </div>
     </div>
     <div class="item-price">
         <h4>
-            <span *ngIf="cartItem.productPrice">$</span>
-            {{cartItem.productPrice}}
+            <span *ngIf="cartItem.price">$</span>
+            {{cartItem.price * cartItem.quantity}}
         </h4>
     </div>
 </div>

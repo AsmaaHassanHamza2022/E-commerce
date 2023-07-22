@@ -17,8 +17,12 @@ export class ApiCallerService {
 
   private getHeaders(): HttpHeaders {
     // Add any required headers for authentication or request customization
-    const headers = new HttpHeaders();
-    headers.set('Content-Type', 'application/json');
+    let headers = new HttpHeaders();
+    headers=headers.set('Content-Type', 'application/json');
+    if(!!localStorage.getItem('token')){
+      headers=headers.set('Authorization',`Bearer ${localStorage.getItem('token')}`);
+
+    }
     return headers;
   }
 
@@ -41,7 +45,7 @@ export class ApiCallerService {
       code: errorCode,
       message: errorMessage,
     };
-    this.messageService.add({ severity: 'error', summary: 'Error', detail:errorResponse.message,life: 100000000000  })
+    this.messageService.add({ severity: 'error', summary: 'Error', detail:errorResponse.message,life:3000})
     console.error(errorResponse);
     return throwError(() => errorResponse);
   }

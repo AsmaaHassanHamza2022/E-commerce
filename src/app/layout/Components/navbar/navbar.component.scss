@@ -1,7 +1,12 @@
 @import "../../../../assets/styles/colors.scss";
+.card{
+  border: none;
+  cursor: pointer;
+
+}
 .topnav
  {
-  overflow: hidden;
+  // overflow: hidden;
   border-bottom: 1px solid #e5e5e5;
  
   a {
@@ -83,4 +88,8 @@
 
 .btn-close{
   --bs-btn-close-focus-shadow:none !important;
+}
+::ng-deep .p-menu.p-menu-overlay{
+  left:-95.85px !important;
+  right:100px !important
 }

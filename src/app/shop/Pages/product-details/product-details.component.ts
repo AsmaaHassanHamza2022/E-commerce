@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../Services/products.service';
 import { IProduct } from 'src/app/Shared/models/Interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/cart/Services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +17,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cartService:CartService
   ) {
     this.productId = Number(this.route.snapshot.paramMap.get('id'));
     if (this.productId == -1) {
@@ -35,6 +37,12 @@ export class ProductDetailsComponent implements OnInit {
 
   catchNewCount(productCount:number){
     this.productCount=productCount;
+    this.cartService.changeProductQuantity(productCount,this.productId);
+  }
+
+  addToCart(){
+    debugger
+    this.cartService.addToCart(this.productItem,this.productCount);
   }
 
  

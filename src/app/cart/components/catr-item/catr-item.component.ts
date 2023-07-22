@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ICartItem } from '../../models/cart';
+import { IcartItem } from '../../models/cart';
+import { CartService } from '../../Services/cart.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-catr-item',
@@ -8,10 +10,21 @@ import { ICartItem } from '../../models/cart';
 })
 export class CatrItemComponent {
 
-  @Input() cartItem:ICartItem={} as ICartItem;
+  constructor(private cartservice:CartService ,private messageService:MessageService){
 
-  catchNewCount(productCount:number){
-    console.log(productCount)
+  }
+
+  @Input() cartItem:IcartItem={} as IcartItem;
+
+  catchNewCount(newQuantity:number,productId:number){
+    this.cartservice.changeProductQuantity(newQuantity,productId);
+  }
+
+  removeItem(productId:number){
+    this.messageService.add({ severity: 'success', summary: 'Removed Successfully', detail:'Product Removed From Cart',life:5000  })
+
+    this.cartservice.removeProductFromCart(productId);
+
   }
 
 }

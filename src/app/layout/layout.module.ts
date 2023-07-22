@@ -7,6 +7,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LayoutComponent } from './Pages/layout/layout.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../Shared/shared.module';
+import { PrimNgModule } from '../prim-ng/prim-ng.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedModule } from '../Shared/shared.module';
     CommonModule,
     LayoutRoutingModule,
     TranslateModule,
-    SharedModule
+    SharedModule,
+    PrimNgModule
   ]
 })
 export class LayoutModule { }
